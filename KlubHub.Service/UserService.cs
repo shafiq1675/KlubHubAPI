@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ThreeStoreOne.Model;
-using ThreeStoreOne.Repo;
+using KlubHub.Model;
+using KlubHub.Repository;
 
-namespace ThreeStoreOne.Service
+namespace KlubHub.Service
 {
     public interface IUserService
     {

@@ -1,7 +1,7 @@
 ﻿using KlubHub.Data;
 using KlubHub.Model;
 
-namespace KlubHub.Repo
+namespace KlubHub.Repository
 {
     public interface ICompanyRepository
     {

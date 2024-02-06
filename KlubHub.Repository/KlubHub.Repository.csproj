@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ThreeStoreOne.Model\ThreeStoreOne.Model.csproj" />
-    <ProjectReference Include="..\ThreeStoreOne.Repo\ThreeStoreOne.Repo.csproj" />
+    <ProjectReference Include="..\KlubHub.DBC\KlubHub.DBC.csproj" />
+    <ProjectReference Include="..\KlubHub.Model\KlubHub.Model.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using KlubHub.Data;
 using KlubHub.Model;
-using KlubHub.Repo;
+using KlubHub.Repository;
 
 namespace KlubHub.Service
 {
@@ -11,11 +11,11 @@ namespace KlubHub.Service
     }
     public class RoleService : IRoleService
     {
-        private readonly IRoleRepository _roleRepository;
+        private readonly RoleRepository _roleRepository;
         private static bool _ensureCreated { get; set; } = false;
 
 
-        public RoleService(IRoleRepository roleRepository)
+        public RoleService(RoleRepository roleRepository)
         {
             _roleRepository = roleRepository;
 

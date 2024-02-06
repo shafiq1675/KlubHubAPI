@@ -1,6 +1,6 @@
-﻿using KlubHub.Data;
-using KlubHub.Model;
-using KlubHub.Repo;
+﻿using KlubHub.Model;
+using KlubHub.Repository;
+
 
 namespace KlubHub.Service
 {
