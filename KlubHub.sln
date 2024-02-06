@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlubHub.Core", "ThreeStoreOne\KlubHub.Core.csproj", "{084606EC-4620-46E2-9005-ABDBD334EF43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlubHub.Model", "ThreeStoreOne.Model\KlubHub.Model.csproj", "{38B6F70A-6E14-4965-9890-14E6EC1B51DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlubHub.DBC", "ThreeStoreOne.DBConnection\KlubHub.DBC.csproj", "{83753971-4CF3-4C54-B9B6-458C011733AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlubHub.Repository", "ThreeStoreOne.Repo\KlubHub.Repository.csproj", "{437AE506-E65F-48A4-A72C-324F94634A07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlubHub.Service", "ThreeStoreOne.Service\KlubHub.Service.csproj", "{40FFDF41-17A1-4D64-90EE-BFFAF3D55D71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{084606EC-4620-46E2-9005-ABDBD334EF43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{084606EC-4620-46E2-9005-ABDBD334EF43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{084606EC-4620-46E2-9005-ABDBD334EF43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{084606EC-4620-46E2-9005-ABDBD334EF43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38B6F70A-6E14-4965-9890-14E6EC1B51DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38B6F70A-6E14-4965-9890-14E6EC1B51DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38B6F70A-6E14-4965-9890-14E6EC1B51DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38B6F70A-6E14-4965-9890-14E6EC1B51DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83753971-4CF3-4C54-B9B6-458C011733AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83753971-4CF3-4C54-B9B6-458C011733AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83753971-4CF3-4C54-B9B6-458C011733AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83753971-4CF3-4C54-B9B6-458C011733AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{437AE506-E65F-48A4-A72C-324F94634A07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{437AE506-E65F-48A4-A72C-324F94634A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{437AE506-E65F-48A4-A72C-324F94634A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{437AE506-E65F-48A4-A72C-324F94634A07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40FFDF41-17A1-4D64-90EE-BFFAF3D55D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40FFDF41-17A1-4D64-90EE-BFFAF3D55D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40FFDF41-17A1-4D64-90EE-BFFAF3D55D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40FFDF41-17A1-4D64-90EE-BFFAF3D55D71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BAC1739A-CFC1-4158-89CE-11A0C79058E6}
+	EndGlobalSection
+EndGlobal
