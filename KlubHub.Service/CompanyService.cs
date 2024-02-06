@@ -1,7 +1,9 @@
-﻿using ThreeStoreOne.Model;
-using ThreeStoreOne.Repo;
+﻿
 
-namespace ThreeStoreOne.Service
+using KlubHub.Model;
+using KlubHub.Repository;
+
+namespace KlubHub.Service
 {
     public interface ICompanyService
     {

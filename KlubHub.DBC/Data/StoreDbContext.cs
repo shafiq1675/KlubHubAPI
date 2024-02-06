@@ -15,7 +15,7 @@ namespace KlubHub.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
-            //optionBuilder.UseCosmos("https://my-store.documents.azure.com:443/", "YgxODINC4PiJahCiG6J7rOgolfsPySeXmKwUdnInDuXzq5S6hkGsilCHa6cfh9NEMKoAN2PleEcUACDb8nqVag==", "three-store-one");
+            //optionBuilder.UseCosmos("my url", "YgxODINC4PiJahCiG6J7rOgolfsPySeXmKwUdnInDuXzq5S6hkGsilCHa6cfh9NEMKoAN2PleEcUACDb8nqVag==", "three-store-one");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using KlubHub.Data;
-using KlubHub.Repo;
+using KlubHub.Repository;
 using KlubHub.Service;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ThreeStoreOne.Model\KlubHub.Model.csproj" />
+    <ProjectReference Include="..\KlubHub.Model\KlubHub.Model.csproj" />
   </ItemGroup>
 
 </Project>
