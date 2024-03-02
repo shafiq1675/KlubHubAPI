@@ -5,40 +5,30 @@ namespace KlubHub.Repository
 {
     public interface ILoginRepository
     {
-        UserVM ValidateUser(CompanyUser companyUser);
+        UserVM ValidateUser(Member companyUser);
     }
     public class LoginRepository: ILoginRepository
     {
-        private readonly StoreDbContext _dbContext;
-        private static bool _ensureCreated { get; set; } = false;
+        private readonly KlubHubDbContext _dbContext;
 
-        public LoginRepository(StoreDbContext dbContext)
+        public LoginRepository(KlubHubDbContext dbContext)
         {
-            _dbContext = dbContext;
-
-            if (!_ensureCreated)
-            {
-                _dbContext.Database.EnsureCreated();
-                _ensureCreated = true;
-            }
+            _dbContext = dbContext;           
         }
-        public UserVM ValidateUser(CompanyUser companyUser)
+        public UserVM ValidateUser(Member companyUser)
         {
             try
             {
                 var response = new UserVM();
-                var result = _dbContext.CompanyUsers.FirstOrDefault(x => (x.UserName == companyUser.UserName || x.UserEmail == companyUser.UserName) && x.Password == companyUser.Password);
+                var result = _dbContext.Member.FirstOrDefault(x => (x.UserName == companyUser.UserName || x.UserEmail == companyUser.UserName) && x.Password == companyUser.Password);
                 if (result == null)
                 {
-                    return response;
+                    throw new Exception("User Not Found.!");
                 }
                 else
                 {
-                    var company = _dbContext.Companies.Where(x=>x.CompanyId == result.CompanyId).FirstOrDefault();
-                    response.CompanyName= company.CompanyName;
                     response.UserEmail = result.UserEmail;
                     response.UserName = result.UserName;
-                    response.CompanyId = result.CompanyId;
                     response.UserFullName = result.UserFullName;
                     return response;
                 }

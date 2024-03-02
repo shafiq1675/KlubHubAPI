@@ -7,12 +7,16 @@ using KlubHub.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration["CosmosConnectionString"];
-var databaseName = builder.Configuration["CosmosDBName"];
-builder.Services.AddDbContext<StoreDbContext>(options =>
-    options.UseCosmos(
-        connectionString,
-        databaseName
+var connectionString = builder.Configuration["sqlConnection"];
+//var databaseName = builder.Configuration["sqlConnection"];
+//builder.Services.AddDbContext<KlubHubDbContext>(options =>
+//    options.UseCosmos(
+//        connectionString,
+//        databaseName
+//    ));
+builder.Services.AddDbContext<KlubHubDbContext>(options =>
+    options.UseSqlServer(
+        connectionString        
     ));
 // Add services to the container.
 

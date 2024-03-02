@@ -10,30 +10,29 @@ namespace KlubHub.Service
 {
     public interface IUserService
     {
-        void AddUser(CompanyUser companyUser);
-        void UpdateUser(CompanyUser companyUser);
-        IEnumerable<CompanyUser> GetAllUser();
+        void AddUser(Member companyUser);
+        void UpdateUser(Member companyUser);
+        IEnumerable<Member> GetAllUser();
     }
     public class UserService : IUserService
     {
-        private readonly UserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
 
-        public UserService(UserRepository userRepository)
+        public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
-        public void AddUser(CompanyUser companyUser)
+        public void AddUser(Member companyUser)
         {
             companyUser.UserId = Guid.NewGuid().ToString();
-            companyUser.Id = Guid.NewGuid().ToString();
             companyUser.CreatedDate = DateTime.Now;
             companyUser.ModifiedDate = DateTime.Now;
             companyUser.IsDeleted = false;
-            companyUser.CreatedBy = null;
+            companyUser.CreatedBy = 0;
             _userRepository.AddUser(companyUser);
         }
 
-        public void UpdateUser(CompanyUser companyUser)
+        public void UpdateUser(Member companyUser)
         {
             try
             {
@@ -46,7 +45,7 @@ namespace KlubHub.Service
             }
         }
 
-        public IEnumerable<CompanyUser> GetAllUser()
+        public IEnumerable<Member> GetAllUser()
         {
             return _userRepository.GetAllUser();
         }

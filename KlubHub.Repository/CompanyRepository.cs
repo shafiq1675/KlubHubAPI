@@ -10,18 +10,11 @@ namespace KlubHub.Repository
     }
     public class CompanyRepository : ICompanyRepository
     {
-        private readonly StoreDbContext _dbContext;
-        private static bool _ensureCreated { get; set; } = false;
+        private readonly KlubHubDbContext _dbContext;
 
-        public CompanyRepository(StoreDbContext dbContext)
+        public CompanyRepository(KlubHubDbContext dbContext)
         {
             _dbContext = dbContext;
-
-            if (!_ensureCreated)
-            {
-                _dbContext.Database.EnsureCreated();
-                _ensureCreated = true;
-            }
         }
         public void AddCompany(Company company)
         {

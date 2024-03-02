@@ -11,11 +11,11 @@ namespace KlubHub.Service
     }
     public class RoleService : IRoleService
     {
-        private readonly RoleRepository _roleRepository;
+        private readonly IRoleRepository _roleRepository;
         private static bool _ensureCreated { get; set; } = false;
 
 
-        public RoleService(RoleRepository roleRepository)
+        public RoleService(IRoleRepository roleRepository)
         {
             _roleRepository = roleRepository;
 

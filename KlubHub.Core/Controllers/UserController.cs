@@ -8,30 +8,30 @@ namespace KlubHub.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class UserController : ControllerBase
+    public class MemberController : ControllerBase
     {
         private readonly IUserService _userService;
 
-        public UserController(IUserService userService)
+        public MemberController(IUserService userService)
         {
             _userService = userService;
         }
 
-        [HttpGet("GetUsers")]
-        public IEnumerable<CompanyUser> GetUser()
+        [HttpGet("GetMembers")]
+        public IEnumerable<Member> GetUser()
         {
             return _userService.GetAllUser().ToArray();
         }
 
         [HttpPost]
-        public IActionResult Post(CompanyUser companyUser)
+        public IActionResult Post(Member companyUser)
         {
             this._userService.AddUser(companyUser);
             return Ok();
         }
 
         [HttpPut]
-        public IActionResult UpdateUser(CompanyUser companyUser)
+        public IActionResult UpdateMember(Member companyUser)
         {
             this._userService.UpdateUser(companyUser);
             return Ok();

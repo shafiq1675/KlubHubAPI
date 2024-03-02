@@ -3,14 +3,14 @@ using KlubHub.Model;
 
 namespace KlubHub.Data
 {
-    public class StoreDbContext : DbContext
+    public class KlubHubDbContext : DbContext
     {
-        public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options)
+        public KlubHubDbContext(DbContextOptions<KlubHubDbContext> options) : base(options)
         {
         }
         public DbSet<UserRole>? UserRoles { get; set; }
         public DbSet<Company>? Companies { get; set; }
-        public DbSet<CompanyUser>? CompanyUsers { get; set; }
+        public DbSet<Member>? Member { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
@@ -20,9 +20,9 @@ namespace KlubHub.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserRole>().ToContainer("UserRole").HasPartitionKey(x => x.CompanyId).HasKey(x => x.Id);
-            modelBuilder.Entity<Company>().ToContainer("Company").HasPartitionKey(x => x.CompanyId).HasKey(x => x.Id);
-            modelBuilder.Entity<CompanyUser>().ToContainer("CompanyUser").HasPartitionKey(x => x.UserId).HasKey(x => x.Id);
+            //modelBuilder.Entity<UserRole>().ToContainer("UserRole").HasPartitionKey(x => x.CompanyId).HasKey(x => x.Id);
+            //modelBuilder.Entity<Company>().ToContainer("Company").HasPartitionKey(x => x.CompanyId).HasKey(x => x.Id);
+            //modelBuilder.Entity<Member>().ToContainer("Member").HasPartitionKey(x => x.UserId).HasKey(x => x.Id);
         }
     }
 }
