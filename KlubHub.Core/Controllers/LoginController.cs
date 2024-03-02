@@ -23,7 +23,7 @@ namespace KlubHub.Controllers
         }
 
         [HttpPost]
-        public IActionResult LogIn(CompanyUser companyUser)
+        public IActionResult LogIn(Member companyUser)
         {
             var response = _loginService.ValidateUser(companyUser);
             if (response!=null)
@@ -42,8 +42,6 @@ namespace KlubHub.Controllers
                 new Claim(JwtRegisteredClaimNames.Sub, userVM.UserName),
                 new Claim(JwtRegisteredClaimNames.Email, userVM.UserEmail),
                 new Claim("UserEmail", userVM.UserEmail),
-                new Claim("CompanyId", userVM.CompanyId),
-                new Claim("CompanyName", userVM.CompanyName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
             var token = new JwtSecurityToken(_configuration["JwtSettings:Issuer"],

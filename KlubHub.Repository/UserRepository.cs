@@ -5,52 +5,44 @@ namespace KlubHub.Repository
 {
     public interface IUserRepository
     {
-        void AddUser(CompanyUser companyUser);
-        void UpdateUser(CompanyUser companyUser);
-        IEnumerable<CompanyUser> GetAllUser();
+        void AddUser(Member companyUser);
+        void UpdateUser(Member companyUser);
+        IEnumerable<Member> GetAllUser();
     }
     public class UserRepository : IUserRepository
     {
-        private readonly StoreDbContext _dbContext;
-        private static bool _ensureCreated { get; set; } = false;
+        private readonly KlubHubDbContext _dbContext;
 
-        public UserRepository(StoreDbContext dbContext)
+        public UserRepository(KlubHubDbContext dbContext)
         {
             _dbContext = dbContext;
-
-            if (!_ensureCreated)
-            {
-                _dbContext.Database.EnsureCreated();
-                _ensureCreated = true;
-            }
         }
-        public void AddUser(CompanyUser companyUser)
+        public void AddUser(Member companyUser)
         {
             companyUser.UserId = Guid.NewGuid().ToString();
-            companyUser.Id = Guid.NewGuid().ToString();
             companyUser.CreatedDate = DateTime.Now;
             companyUser.ModifiedDate = DateTime.Now;
             companyUser.IsDeleted = false;
-            companyUser.CreatedBy = null;
-            _ = _dbContext.CompanyUsers.Add(companyUser);
+            companyUser.CreatedBy = 0;
+            _ = _dbContext.Member.Add(companyUser);
             _dbContext.SaveChangesAsync();
         }
 
-        public void UpdateUser(CompanyUser companyUser)
+        public void UpdateUser(Member companyUser)
         {
-            CompanyUser? tempUser = _dbContext.CompanyUsers.FirstOrDefault(x => x.UserId == companyUser.UserId);
+            Member? tempUser = _dbContext.Member.FirstOrDefault(x => x.UserId == companyUser.UserId);
             if (tempUser != null)
             {
                 tempUser.UserRole = companyUser.UserRole;
                 tempUser.ModifiedDate = DateTime.Now;
-                _ = _dbContext.CompanyUsers.Update(tempUser);
+                _ = _dbContext.Member.Update(tempUser);
                 _dbContext.SaveChangesAsync();
             }
         }
 
-        public IEnumerable<CompanyUser> GetAllUser()
+        public IEnumerable<Member> GetAllUser()
         {
-            return _dbContext.CompanyUsers.ToList();
+            return _dbContext.Member.ToList();
         }
     }
 }

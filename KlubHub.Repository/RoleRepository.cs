@@ -10,19 +10,11 @@ namespace KlubHub.Repository
     }
     public class RoleRepository : IRoleRepository
     {
-        private readonly StoreDbContext _dbContext;
-        private static bool _ensureCreated { get; set; } = false;
+        private readonly KlubHubDbContext _dbContext;
 
-
-        public RoleRepository(StoreDbContext dbContext)
+        public RoleRepository(KlubHubDbContext dbContext)
         {
             _dbContext = dbContext;
-
-            if (!_ensureCreated)
-            {
-                _dbContext.Database.EnsureCreated();
-                _ensureCreated = true;
-            }
         }
         public void AddUserRole(UserRole userRole)
         {

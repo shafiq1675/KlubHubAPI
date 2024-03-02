@@ -9,8 +9,6 @@ namespace KlubHub.Model
     public class UserVM
     {
         public string? UserId { get; set; }
-        public string? CompanyId { set; get; }
-        public string? CompanyName { set; get; }
         public string? UserFullName { get; set; }
         public string? UserName { get; set; }
         public string? UserEmail { get; set; }
