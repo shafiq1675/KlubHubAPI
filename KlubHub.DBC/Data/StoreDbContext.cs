@@ -8,8 +8,7 @@ namespace KlubHub.Data
         public KlubHubDbContext(DbContextOptions<KlubHubDbContext> options) : base(options)
         {
         }
-        public DbSet<UserRole>? UserRoles { get; set; }
-        public DbSet<Company>? Companies { get; set; }
+        public DbSet<MemberRole>? MemberRoles { get; set; }
         public DbSet<Member>? Member { get; set; }
 
 
@@ -20,7 +19,7 @@ namespace KlubHub.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<UserRole>().ToContainer("UserRole").HasPartitionKey(x => x.CompanyId).HasKey(x => x.Id);
+            //modelBuilder.Entity<MemberRole>().ToContainer("MemberRole").HasPartitionKey(x => x.CompanyId).HasKey(x => x.Id);
             //modelBuilder.Entity<Company>().ToContainer("Company").HasPartitionKey(x => x.CompanyId).HasKey(x => x.Id);
             //modelBuilder.Entity<Member>().ToContainer("Member").HasPartitionKey(x => x.UserId).HasKey(x => x.Id);
         }

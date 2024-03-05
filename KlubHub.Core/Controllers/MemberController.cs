@@ -10,9 +10,9 @@ namespace KlubHub.Controllers
     [Route("api/[controller]")]
     public class MemberController : ControllerBase
     {
-        private readonly IUserService _userService;
+        private readonly IMemberService _userService;
 
-        public MemberController(IUserService userService)
+        public MemberController(IMemberService userService)
         {
             _userService = userService;
         }
@@ -24,16 +24,16 @@ namespace KlubHub.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Member companyUser)
+        public IActionResult Post(Member member)
         {
-            this._userService.AddUser(companyUser);
+            this._userService.AddMember(member);
             return Ok();
         }
 
         [HttpPut]
-        public IActionResult UpdateMember(Member companyUser)
+        public IActionResult UpdateMember(Member member)
         {
-            this._userService.UpdateUser(companyUser);
+            this._userService.UpdateMember(member);
             return Ok();
         }
 

@@ -42,16 +42,14 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<ILoginRepository, LoginRepository>();
-builder.Services.AddScoped<IRoleRepository, RoleRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IMemberRoleRepository, MemberRoleRepository>();
+builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 
 
-builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
-builder.Services.AddScoped<IRoleService, RoleService>();
-builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IMemberRoleService, MemberRoleService>();
+builder.Services.AddScoped<IMemberService, MemberService>();
 
 
 

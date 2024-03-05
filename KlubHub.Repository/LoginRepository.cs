@@ -5,7 +5,7 @@ namespace KlubHub.Repository
 {
     public interface ILoginRepository
     {
-        UserVM ValidateUser(Member companyUser);
+        UserVM ValidateMember(Member member);
     }
     public class LoginRepository: ILoginRepository
     {
@@ -15,12 +15,12 @@ namespace KlubHub.Repository
         {
             _dbContext = dbContext;           
         }
-        public UserVM ValidateUser(Member companyUser)
+        public UserVM ValidateMember(Member member)
         {
             try
             {
                 var response = new UserVM();
-                var result = _dbContext.Member.FirstOrDefault(x => (x.UserName == companyUser.UserName || x.UserEmail == companyUser.UserName) && x.Password == companyUser.Password);
+                var result = _dbContext.Member.FirstOrDefault(x => (x.UserName == member.UserName || x.UserEmail == member.UserName) && x.Password == member.Password);
                 if (result == null)
                 {
                     throw new Exception("User Not Found.!");

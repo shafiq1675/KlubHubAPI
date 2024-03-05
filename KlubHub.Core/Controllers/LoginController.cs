@@ -23,9 +23,9 @@ namespace KlubHub.Controllers
         }
 
         [HttpPost]
-        public IActionResult LogIn(Member companyUser)
+        public IActionResult LogIn(Member member)
         {
-            var response = _loginService.ValidateUser(companyUser);
+            var response = _loginService.ValidateMember(member);
             if (response!=null)
             {
                 response.Token =  this.GenToken(response);

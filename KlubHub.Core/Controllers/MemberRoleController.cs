@@ -8,30 +8,30 @@ namespace KlubHub.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class RoleController : ControllerBase
+    public class MemberRoleController : ControllerBase
     {
-        private readonly IRoleService _roleService;
+        private readonly IMemberRoleService _MemberRoleService;
 
-        public RoleController(IRoleService roleService)
+        public MemberRoleController(IMemberRoleService MemberRoleService)
         {
-            _roleService = roleService;
+            _MemberRoleService = MemberRoleService;
         }
 
         [HttpGet("GetRole")]
-        public IEnumerable<UserRole> GetUser()
+        public IEnumerable<MemberRole> GetUser()
         {
-            return _roleService.GetAllUserRole().ToArray();
+            return _MemberRoleService.GetAllMemberRole().ToArray();
         }
 
         [HttpPost]
-        public IActionResult Post(UserRole userRole)
+        public IActionResult Post(MemberRole MemberRole)
         {
-            this._roleService.AddUserRole(userRole);
+            this._MemberRoleService.AddMemberRole(MemberRole);
             return Ok();
         }
 
         [HttpPut]
-        public IActionResult Put(UserRole userRole)
+        public IActionResult Put(MemberRole MemberRole)
         {
             try
             {
