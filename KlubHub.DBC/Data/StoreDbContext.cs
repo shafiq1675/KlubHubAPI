@@ -10,6 +10,7 @@ namespace KlubHub.Data
         }
         public DbSet<MemberRole>? MemberRoles { get; set; }
         public DbSet<Member>? Member { get; set; }
+        public DbSet<Club>? Club { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)

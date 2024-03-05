@@ -20,7 +20,7 @@ namespace KlubHub.Repository
             try
             {
                 var response = new UserVM();
-                var result = _dbContext.Member.FirstOrDefault(x => (x.MemberUserName == member.MemberUserName || x.MemberEmail == member.MemberEmail) && x.Password == member.Password);
+                var result = _dbContext.Member.FirstOrDefault(x => (x.MemberUserName == member.MemberEmail || x.MemberEmail == member.MemberEmail) && x.Password == member.Password);
                 if (result == null)
                 {
                     throw new Exception("User Not Found.!");
