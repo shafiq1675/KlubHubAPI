@@ -19,12 +19,20 @@ namespace KlubHub.Repository
         }
         public void AddMember(Member member)
         {
-            member.CreatedDate = DateTime.Now;
-            member.ModifiedDate = DateTime.Now;
-            member.IsDeleted = false;
-            member.CreatedBy = 0;
-            _ = _dbContext.Member.Add(member);
-            _dbContext.SaveChangesAsync();
+            try
+            {
+                member.CreatedDate = DateTime.Now;
+                member.ModifiedDate = DateTime.Now;
+                member.IsDeleted = false;
+                member.CreatedBy = 0;
+                _ = _dbContext.Member.Add(member);
+                _dbContext.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
         }
 
         public void UpdateMember(Member member)
