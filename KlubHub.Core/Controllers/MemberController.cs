@@ -5,7 +5,6 @@ using KlubHub.Service;
 
 namespace KlubHub.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class MemberController : ControllerBase
@@ -17,6 +16,7 @@ namespace KlubHub.Controllers
             _userService = userService;
         }
 
+        [Authorize]
         [HttpGet("GetMembers")]
         public IEnumerable<Member> GetUser()
         {
@@ -26,10 +26,27 @@ namespace KlubHub.Controllers
         [HttpPost]
         public IActionResult Post(Member member)
         {
+            try
+            {
+                this._userService.AddMember(member);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(StatusCodes.Status500InternalServerError);
+            }
+            
+        }
+
+        [Authorize]
+        [HttpPost("AddMemberByAdmin")]
+        public IActionResult AddMemberByAdmin(Member member)
+        {
             this._userService.AddMember(member);
             return Ok();
         }
 
+        [Authorize]
         [HttpPut]
         public IActionResult UpdateMember(Member member)
         {
@@ -37,6 +54,7 @@ namespace KlubHub.Controllers
             return Ok();
         }
 
+        [Authorize]
         [HttpDelete("{UserId}")]
         public IActionResult Delete(string UserId)
         {
