@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string? MemberFullName { get; set; }
-        public string? MemberName { get; set; }
+        public string? MemberUserName { get; set; }
         public string? MemberEmail { get; set; }
         public string? MemberContactNumber {  get; set; }
         public string? Password { get; set; }
