@@ -12,8 +12,6 @@ namespace KlubHub.Service
     public class MemberRoleService : IMemberRoleService
     {
         private readonly IMemberRoleRepository _MemberRoleRepository;
-        private static bool _ensureCreated { get; set; } = false;
-
 
         public MemberRoleService(IMemberRoleRepository MemberRoleRepository)
         {

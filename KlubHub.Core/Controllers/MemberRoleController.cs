@@ -17,8 +17,8 @@ namespace KlubHub.Controllers
             _MemberRoleService = MemberRoleService;
         }
 
-        [HttpGet("GetRole")]
-        public IEnumerable<MemberRole> GetUser()
+        [HttpGet]
+        public IEnumerable<MemberRole> Get()
         {
             return _MemberRoleService.GetAllMemberRole().ToArray();
         }
