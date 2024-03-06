@@ -5,7 +5,7 @@ namespace KlubHub.Repository
 {
     public interface ILoginRepository
     {
-        UserVM ValidateMember(Member member);
+        MemberVM ValidateMember(Member member);
     }
     public class LoginRepository: ILoginRepository
     {
@@ -15,11 +15,11 @@ namespace KlubHub.Repository
         {
             _dbContext = dbContext;           
         }
-        public UserVM ValidateMember(Member member)
+        public MemberVM ValidateMember(Member member)
         {
             try
             {
-                var response = new UserVM();
+                var response = new MemberVM();
                 var result = _dbContext.Member.FirstOrDefault(x => (x.MemberUserName == member.MemberEmail || x.MemberEmail == member.MemberEmail) && x.Password == member.Password);
                 if (result == null)
                 {
@@ -27,9 +27,12 @@ namespace KlubHub.Repository
                 }
                 else
                 {
-                    response.UserEmail = result.MemberEmail;
-                    response.UserName = result.MemberUserName;
-                    response.UserFullName = result.MemberFullName;
+                    response.MemberEmail = result.MemberEmail;
+                    response.MemberUserName = result.MemberUserName;
+                    response.MemberFullName = result.MemberFullName;
+                    response.Id = result.Id;
+                    response.MemberRoleId = result.MemberRoleId;
+                    response.MemberContactNumber = result.MemberContactNumber;
                     return response;
                 }
 

@@ -6,7 +6,7 @@ namespace KlubHub.Service
 {
     public interface ILoginService
     {
-        UserVM ValidateMember(Member member);
+        MemberVM ValidateMember(Member member);
     }
     public class LoginService: ILoginService
     {
@@ -17,7 +17,7 @@ namespace KlubHub.Service
         {
             _loginRepository = loginRepository;
         }
-        public UserVM ValidateMember(Member member)
+        public MemberVM ValidateMember(Member member)
         {
             try
             {
