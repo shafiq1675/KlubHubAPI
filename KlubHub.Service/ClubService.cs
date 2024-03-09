@@ -13,6 +13,7 @@ namespace KlubHub.Service
         void AddClub(Club club);
         void UpdateClub(Club club);
         IEnumerable<Club> Get();
+        Club Get(int clubId);
     }
     public class ClubService : IClubService
     {
@@ -47,6 +48,11 @@ namespace KlubHub.Service
         public IEnumerable<Club> Get()
         {
             return _userRepository.Get();
+        }
+
+        public Club Get(int clubId)
+        {
+            return _userRepository.Get(clubId);
         }
     }
 }

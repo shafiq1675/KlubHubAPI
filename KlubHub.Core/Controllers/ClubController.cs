@@ -23,6 +23,13 @@ namespace KlubHub.Controllers
             return _clubService.Get().ToArray();
         }
 
+        [HttpGet("getById/{clubId}")]
+
+        public Club Get(int clubId)
+        {
+            return _clubService.Get(clubId);
+        }
+
         [HttpPost]
         public IActionResult Post(Club club)
         {

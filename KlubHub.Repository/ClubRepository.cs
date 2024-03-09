@@ -1,5 +1,6 @@
 ﻿using KlubHub.Data;
 using KlubHub.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace KlubHub.Repository
 {
@@ -8,6 +9,8 @@ namespace KlubHub.Repository
         void AddClub(Club member);
         void UpdateClub(Club member);
         IEnumerable<Club> Get();
+
+        Club Get(int clubId);
     }
     public class ClubRepository : IClubRepository
     {
@@ -48,6 +51,10 @@ namespace KlubHub.Repository
         public IEnumerable<Club> Get()
         {
             return _dbContext.Club.ToList();
+        }
+        public Club Get(int clubId)
+        {
+            return _dbContext.Club.Where(x=> x.ClubId == clubId).FirstOrDefault();
         }
     }
 }
