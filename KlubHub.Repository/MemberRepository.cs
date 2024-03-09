@@ -7,7 +7,7 @@ namespace KlubHub.Repository
     {
         void AddMember(Member member);
         void UpdateMember(Member member);
-        IEnumerable<Member> GetAllUser();
+        IEnumerable<Member> GetAllMember();
     }
     public class MemberRepository : IMemberRepository
     {
@@ -47,7 +47,7 @@ namespace KlubHub.Repository
             }
         }
 
-        public IEnumerable<Member> GetAllUser()
+        public IEnumerable<Member> GetAllMember()
         {
             return _dbContext.Member.ToList();
         }

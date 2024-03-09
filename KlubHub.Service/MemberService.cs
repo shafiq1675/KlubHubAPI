@@ -12,7 +12,7 @@ namespace KlubHub.Service
     {
         void AddMember(Member member);
         void UpdateMember(Member member);
-        IEnumerable<Member> GetAllUser();
+        IEnumerable<Member> GetAllMember();
     }
     public class MemberService : IMemberService
     {
@@ -44,9 +44,9 @@ namespace KlubHub.Service
             }
         }
 
-        public IEnumerable<Member> GetAllUser()
+        public IEnumerable<Member> GetAllMember()
         {
-            return _userRepository.GetAllUser();
+            return _userRepository.GetAllMember();
         }
     }
 }
