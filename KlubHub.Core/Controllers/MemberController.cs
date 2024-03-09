@@ -20,7 +20,7 @@ namespace KlubHub.Controllers
         [HttpGet("GetMembers")]
         public IEnumerable<Member> GetUser()
         {
-            return _userService.GetAllUser().ToArray();
+            return _userService.GetAllMember().ToArray();
         }
 
         [HttpPost]

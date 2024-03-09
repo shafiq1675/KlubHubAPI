@@ -46,12 +46,16 @@ builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddScoped<IMemberRoleRepository, MemberRoleRepository>();
 builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 builder.Services.AddScoped<IClubRepository, ClubRepository>();
+builder.Services.AddScoped<IClubMemberRepository, ClubMemberRepository>();
+builder.Services.AddScoped<IEventRepository, EventRepository>();
 
 
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IMemberRoleService, MemberRoleService>();
 builder.Services.AddScoped<IMemberService, MemberService>();
 builder.Services.AddScoped<IClubService, ClubService>();
+builder.Services.AddScoped<IClubMemberService, ClubMemberService>();
+builder.Services.AddScoped<IEventService, EventService>();
 
 
 
