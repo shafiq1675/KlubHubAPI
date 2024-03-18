@@ -48,6 +48,8 @@ builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 builder.Services.AddScoped<IClubRepository, ClubRepository>();
 builder.Services.AddScoped<IClubMemberRepository, ClubMemberRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
+builder.Services.AddScoped<IOrgRepository, OrgRepository>();
+builder.Services.AddScoped<IOrgTypeRepository, OrgTypeRepository>();
 
 
 builder.Services.AddScoped<ILoginService, LoginService>();
@@ -56,6 +58,8 @@ builder.Services.AddScoped<IMemberService, MemberService>();
 builder.Services.AddScoped<IClubService, ClubService>();
 builder.Services.AddScoped<IClubMemberService, ClubMemberService>();
 builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<IOrgService, OrgService>();
+builder.Services.AddScoped<IOrgTypeService, OrgTypeService>();
 
 
 

@@ -8,34 +8,27 @@ namespace KlubHub.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class ClubController : ControllerBase
+    public class OrgController : ControllerBase
     {
-        private readonly IClubService _clubService;
+        private readonly IOrgService _orgService;
 
-        public ClubController(IClubService clubService)
+        public OrgController(IOrgService orgService)
         {
-            _clubService = clubService;
+            _orgService = orgService;
         }
 
-        [HttpGet]
-        public IEnumerable<Club> Get()
+        [HttpGet("GetOrgs")]
+        public IEnumerable<Org> GetOrg()
         {
-            return _clubService.Get().ToArray();
-        }
-
-        [HttpGet("getById/{clubId}")]
-
-        public Club Get(int clubId)
-        {
-            return _clubService.Get(clubId);
+            return _orgService.GetAllOrg().ToArray();
         }
 
         [HttpPost]
-        public IActionResult Post(Club club)
+        public IActionResult Post(Org org)
         {
             try
             {
-                this._clubService.AddClub(club);
+                this._orgService.AddOrg(org);
                 return Ok();
             }
             catch (Exception ex)
@@ -45,16 +38,22 @@ namespace KlubHub.Controllers
 
         }
 
-
-        [HttpPut]
-        public IActionResult UpdateClub(Club club)
+        [HttpPost("AddOrgByAdmin")]
+        public IActionResult AddOrgByAdmin(Org org)
         {
-            this._clubService.UpdateClub(club);
+            this._orgService.AddOrg(org);
             return Ok();
         }
 
-        [HttpDelete("{clubId}")]
-        public IActionResult Delete(string clubId)
+        [HttpPut]
+        public IActionResult UpdateOrg(Org org)
+        {
+            this._orgService.UpdateOrg(org);
+            return Ok();
+        }
+
+        [HttpDelete("{OrgId}")]
+        public IActionResult Delete(string OrgId)
         {
             try
             {
