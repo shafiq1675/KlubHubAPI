@@ -13,6 +13,8 @@ namespace KlubHub.Data
         public DbSet<Club>? Club { get; set; }
         public DbSet<ClubMember>? ClubMember { get; set; }
         public DbSet<Event>? Event { get; set; }
+        public DbSet<Org>? Org { get; set; }
+        public DbSet<OrgType>? OrgType { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
