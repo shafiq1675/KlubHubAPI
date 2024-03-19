@@ -9,7 +9,7 @@ namespace KlubHub.Model
     public class Club
     {
         public int ClubId { get; set; }
-        public int OrgTypeId { get; set; }
+        public int OrgId { get; set; }
         public string ClubName { get; set; }
         public string? Description { get; set; }
         public string? Address { get; set; }
